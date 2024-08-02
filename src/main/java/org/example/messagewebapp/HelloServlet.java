@@ -24,7 +24,7 @@ public class HelloServlet extends HttpServlet {
 
         System.out.println("Hi");
         System.out.println("dfdf");
-        System.out.println("dfdfa");
+
     }
 
     public void destroy() {
