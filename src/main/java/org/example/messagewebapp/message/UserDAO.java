@@ -30,7 +30,7 @@ public enum UserDAO {
         UserVO vo = UserVO.builder()
                 .user_no(rs.getInt("user_no"))
                 .user_id(rs.getString("user_id"))
-                .user_name(rs.getString("user_name"))
+                .user_name(rs.getString("username"))
                 .password(rs.getString("password"))
                 .role(rs.getString("role"))
                 .build();
