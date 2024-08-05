@@ -20,6 +20,7 @@ public enum MessageDAO {
                 select *
                 from tbl_message
                 where sender_id = ? or receiver_id = ? 
+                order by message_no desc
                 limit 10
                 """;
         @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
@@ -43,4 +44,17 @@ public enum MessageDAO {
 
         return messages;
     }
+    public void sendMessage(MessageVO vo) throws Exception {
+        String query = """
+                insert into tbl_message (sender_id, receiver_id, message_content)
+                values(?,?,?)
+                """;
+        @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
+        @Cleanup PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, vo.getSender_id());
+        ps.setString(2, vo.getReceiver_id());
+        ps.setString(3, vo.getMessage_content());
+        ps.executeUpdate();
+    }
+
 }

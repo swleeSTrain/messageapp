@@ -19,5 +19,8 @@
         </li>
     </c:forEach>
 </ul>
+<form action="/message/send" method="get">
+    <button type="submit">새 쪽지 보내기</button>
+</form>
 </body>
 </html>
