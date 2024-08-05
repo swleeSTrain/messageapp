@@ -31,13 +31,18 @@ public class LoginController extends HttpServlet {
 
         try {
             Optional<UserVO> result = UserDAO.INSTANCE.get(user_id,password);
-            result.ifPresentOrElse(UserVO->{
+            result.ifPresentOrElse(userVO->{
                 Cookie logincookie = new Cookie("user_id", user_id);
                 logincookie.setPath("/");
                 logincookie.setMaxAge(60*60*24);
                 resp.addCookie(logincookie);
                 try {
-                    resp.sendRedirect("/login");
+                    // 사용자의 역할에 따라 다른 페이지로 리다이렉트
+                    if ("ADMIN".equals(userVO.getRole())) {
+                        resp.sendRedirect("/admin");
+                    } else if ("STUDENT".equals(userVO.getRole())) {
+                        resp.sendRedirect("/student");
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -50,7 +55,7 @@ public class LoginController extends HttpServlet {
                 }
             });
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
