@@ -13,9 +13,9 @@
 </head>
 <body>
 <ul>
-    <c:forEach var="all_message" items="${all_messages}">
+    <c:forEach var="send_message" items="${send_messages}">
         <li>
-            ${all_message}
+                ${send_message}
         </li>
     </c:forEach>
 </ul>

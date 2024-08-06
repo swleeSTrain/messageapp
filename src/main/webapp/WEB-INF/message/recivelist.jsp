@@ -12,10 +12,11 @@
     <title>Title</title>
 </head>
 <body>
+<h1>받은쪽지함</h1>
 <ul>
-    <c:forEach var="all_message" items="${all_messages}">
+    <c:forEach var="recive_message" items="${recive_messages}">
         <li>
-            ${all_message}
+                ${recive_message}
         </li>
     </c:forEach>
 </ul>
