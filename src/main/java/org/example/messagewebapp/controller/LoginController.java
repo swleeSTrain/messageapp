@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
         log.info("password: " + password);
 
         try {
-            Optional<UserVO> result = UserDAO.INSTANCE.get(user_id,password);
+            Optional<UserVO> result = UserDAO.INSTANCE.getUsers(user_id,password);
             result.ifPresentOrElse(userVO->{
                 Cookie logincookie = new Cookie("user_id", user_id);
                 logincookie.setPath("/");

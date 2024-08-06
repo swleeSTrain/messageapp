@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @Log4j2
 @WebServlet("/message/send")
-public class SendMessageController extends HttpServlet {
+public class MessageSendController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sender_id = req.getParameter("sender_id");
