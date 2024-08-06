@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <%--
   Created by IntelliJ IDEA.
   User: USER
@@ -12,10 +14,11 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-    <c:forEach var="message" items="${messages}">
-        <li>
-          작성자: ${message.name} 시간: ${message.timestamp} 메시지 내용: ${message.message_content}
+
+<ul class="list-group">
+    <c:forEach var="message" items="${messages}" >
+        <li class="list-group-item" style="width: 500px; height: 100px; align-self: center;  " >
+          작성자 : ${message.sender_id} 시간 : ${message.timestamp} 내용 : ${message.message_content}
         </li>
     </c:forEach>
 </ul>
