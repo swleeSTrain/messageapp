@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
-@WebServlet(value="/message/send")
+@WebServlet(value="/test/send")
 public class SendController extends HttpServlet {
 
     @Override
@@ -24,7 +24,7 @@ public class SendController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("message", "하이요");
+
         List<String > list = new ArrayList<>();
         list.add("hi");
         list.add("hello");

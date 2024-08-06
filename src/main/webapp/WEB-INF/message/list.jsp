@@ -22,8 +22,12 @@
         </li>
     </c:forEach>
 </ul>
-<form action="/message/send" method="get">
-    <button type="submit">새 쪽지 보내기</button>
-</form>
+</iframe>
+<div class="input-group mb-3">
+    <form action="/test/send" method="post">
+        <input type="text" class="form-control">
+        <button type="submit" class="btn btn-outline-secondary">SUBMIT</button>
+    </form>
+</div>
 </body>
 </html>
