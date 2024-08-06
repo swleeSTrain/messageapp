@@ -13,5 +13,5 @@ public class UserVO {
     private String user_name;
     private String password;
     private String role;
-    private int room_no;
+    private Integer room_no;
 }
