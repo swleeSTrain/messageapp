@@ -15,7 +15,7 @@
 <ul>
     <c:forEach var="message" items="${messages}">
         <li>
-            ${message}
+          작성자: ${message.name} 시간: ${message.timestamp} 메시지 내용: ${message.message_content}
         </li>
     </c:forEach>
 </ul>
