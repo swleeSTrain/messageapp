@@ -4,6 +4,13 @@
 
     <h1>COMMON DATA</h1>
 
-    <c:out value="message"></c:out>
+<%--    <c:if test="${messages == null}" var="비어 있음" >--%>
+<%--    </c:if>--%>
+    <ul>
+    <c:forEach items = "${messages}" var="message">
+        ${message}
+    </c:forEach>
+    </ul>
+
 
 <%@ include file="WEB-INF/include/header.jsp"%>
