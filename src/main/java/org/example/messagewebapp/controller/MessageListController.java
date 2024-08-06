@@ -17,7 +17,7 @@ public class MessageListController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String user_id = req.getParameter("user_id");
         try {
-            List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessage("std1");
+            List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessages("std1");
             req.setAttribute("all_messages", all_messages);
             req.getRequestDispatcher("/WEB-INF/message/list.jsp").forward(req, resp);
         } catch (Exception e) {

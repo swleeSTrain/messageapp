@@ -13,7 +13,7 @@ import java.util.List;
 public enum MessageDAO {
     INSTANCE;
 
-    public List<MessageVO> getAllMessage(String id) throws Exception {
+    public List<MessageVO> getAllMessages(String id) throws Exception {
         String query = """
                 select *
                 from tbl_message
