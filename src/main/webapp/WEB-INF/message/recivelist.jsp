@@ -1,17 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 24. 8. 5.
-  Time: 오후 4:37
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+
+<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@include file="../include/header.jsp"%>
 <h1>받은쪽지함</h1>
 <ul>
     <c:forEach var="recive_message" items="${recive_messages}">
@@ -32,5 +23,4 @@
 <form action="/message/recivelist" method="get">
     <button type="submit">받은 쪽지함</button>
 </form>
-</body>
-</html>
+<%@include file="../include/footer.jsp"%>

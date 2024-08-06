@@ -1,16 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 24. 8. 5.
-  Time: 오후 4:51
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+
+<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@include file="../include/header.jsp"%>
 <h1>
     메시지 전송페이지
 </h1>
@@ -23,5 +15,4 @@
     <input type="text" id="message_content" name="message_content">
     <input type="submit" value="Send">
 </form>
-</body>
-</html>
+<%@include file="../include/footer.jsp"%>

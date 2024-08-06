@@ -10,4 +10,5 @@ import lombok.*;
 public class RoomVO {
     private Integer room_no;
     private String room_name;
+
 }
