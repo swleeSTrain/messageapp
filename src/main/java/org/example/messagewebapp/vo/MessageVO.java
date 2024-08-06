@@ -1,4 +1,4 @@
-package org.example.messagewebapp.message;
+package org.example.messagewebapp.vo;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @ToString
 public class MessageVO {
-    private int message_no;
+    private Integer message_no;
     private String sender_id;
     private String receiver_id;
     private String message_content;

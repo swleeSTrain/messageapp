@@ -1,4 +1,4 @@
-package org.example.messagewebapp.message;
+package org.example.messagewebapp.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,12 +6,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
+import org.example.messagewebapp.dao.MessageDAO;
+import org.example.messagewebapp.vo.MessageVO;
 
 import java.io.IOException;
 
 @Log4j2
 @WebServlet("/message/send")
-public class sendMessageController extends HttpServlet {
+public class SendMessageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sender_id = req.getParameter("sender_id");

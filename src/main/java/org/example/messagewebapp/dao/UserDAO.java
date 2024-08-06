@@ -1,7 +1,8 @@
-package org.example.messagewebapp.message;
+package org.example.messagewebapp.dao;
 
 import lombok.Cleanup;
 import org.example.messagewebapp.common.ConnectionUtil;
+import org.example.messagewebapp.vo.UserVO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public enum UserDAO {
     INSTANCE;
 
-    public Optional<UserVO> get(String id,String pw) throws Exception{
+    public Optional<UserVO> get(String id, String pw) throws Exception{
         String query = """
                 select * from tbl_user
                 where

@@ -1,16 +1,14 @@
-package org.example.messagewebapp.message;
+package org.example.messagewebapp.dao;
 
 import lombok.Cleanup;
-import org.apache.logging.log4j.message.Message;
 import org.example.messagewebapp.common.ConnectionUtil;
+import org.example.messagewebapp.vo.MessageVO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public enum MessageDAO {
     INSTANCE;
