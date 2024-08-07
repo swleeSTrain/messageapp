@@ -1,5 +1,6 @@
 package org.example.messagewebapp.controller;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,20 +12,20 @@ import org.example.messagewebapp.vo.MessageVO;
 
 import java.io.IOException;
 import java.util.List;
-@WebServlet("/message/sendlist")
+
+@WebServlet(value="/message/send_get")
 @Log4j2
-public class MessageSendListController extends HttpServlet {
+public class SendListViewController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String user_id = req.getParameter("user_id");
         try {
-            List<MessageVO> send_messages = MessageDAO.INSTANCE.getSendMessage("std1");
-            req.setAttribute("send_messages", send_messages);
-            req.getRequestDispatcher("/WEB-INF/message/list.jsp").forward(req, resp);
+            List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessage("std1");
+            req.setAttribute("send_messages", all_messages);
+            req.getRequestDispatcher("/WEB-INF/test/sendlist.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-
-
 }

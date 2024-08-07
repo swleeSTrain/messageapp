@@ -41,9 +41,9 @@ public class LoginController extends HttpServlet {
                 try {
                     // 사용자의 역할에 따라 다른 페이지로 리다이렉트
                     if ("ADMIN".equals(userVO.getRole())) {
-                        resp.sendRedirect("/admin");
+                        resp.sendRedirect("/message/list");
                     } else if ("STUDENT".equals(userVO.getRole())) {
-                        resp.sendRedirect("/student");
+                        resp.sendRedirect("/message/list");
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
