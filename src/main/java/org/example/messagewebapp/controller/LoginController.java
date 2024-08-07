@@ -39,12 +39,7 @@ public class LoginController extends HttpServlet {
                 logincookie.setMaxAge(60*60*24);
                 resp.addCookie(logincookie);
                 try {
-                    // 사용자의 역할에 따라 다른 페이지로 리다이렉트
-                    if ("ADMIN".equals(userVO.getRole())) {
-                        resp.sendRedirect("/admin");
-                    } else if ("STUDENT".equals(userVO.getRole())) {
-                        resp.sendRedirect("/student");
-                    }
+                    resp.sendRedirect("/message/list");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
