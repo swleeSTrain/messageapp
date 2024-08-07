@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../include/header.jsp"%>
 <h1>새 쪽지 보내기</h1>
 <div class="mb-3">
