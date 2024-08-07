@@ -37,7 +37,7 @@ public class MessageSendListController extends HttpServlet {
             req.setAttribute("user", user);
             List<MessageVO> send_messages = MessageDAO.INSTANCE.getSendMessage(user_id);
             req.setAttribute("send_messages", send_messages);
-            req.getRequestDispatcher("/WEB-INF/message/sendlist.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/message/list.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

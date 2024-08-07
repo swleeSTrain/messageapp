@@ -22,7 +22,7 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
 
-        System.out.println("Hi");
+        System.out.println("H2");
         System.out.println("dfdf");
 
     }

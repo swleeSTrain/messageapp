@@ -1,0 +1,12 @@
+
+body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-left: 100px; /* 원하는 간격으로 조정 */
+}
+/*.form-control {*/
+/*    text-align: center;*/
+/*}*/

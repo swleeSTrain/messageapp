@@ -36,7 +36,7 @@ public class MessageReciveListController extends HttpServlet {
             req.setAttribute("user", user);
             List<MessageVO> recive_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
             req.setAttribute("recive_messages", recive_messages);
-            req.getRequestDispatcher("/WEB-INF/message/recivelist.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/message/list.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
