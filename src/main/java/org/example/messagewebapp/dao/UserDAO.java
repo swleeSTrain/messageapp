@@ -124,4 +124,17 @@ public enum UserDAO {
         }
         return students;
     }
+    public void addUser(UserVO user) throws Exception {
+        String query = """
+                INSERT INTO tbl_user (user_id, user_name, password, role)
+                VALUES (?, ?, ?, ?)
+                """;
+        @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
+        @Cleanup PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, user.getUser_id());
+        ps.setString(2, user.getUser_name());
+        ps.setString(3, user.getPassword());
+        ps.setString(4, user.getRole());
+        ps.executeUpdate();
+    }
 }

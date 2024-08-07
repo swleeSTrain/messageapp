@@ -15,7 +15,7 @@
                 </c:forEach>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">배정</button>
+        <button type="submit" class="btn btn-primary">배정 및 수정</button>
     </form>
 </div>
 </div>

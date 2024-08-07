@@ -36,9 +36,6 @@
                 <form action="/room/add" method="get">
                     <button type="submit">방추가</button>
                 </form>
-                <form action="/room/assign" method="get">
-                    <button type="submit">방인원수정</button>
-                </form>
                 <form action="/room/list" method="get">
                     <button type="submit">방목록</button>
                 </form>
