@@ -13,11 +13,11 @@ import java.util.List;
 public enum MessageDAO {
     INSTANCE;
 
-    public List<MessageVO> getAllMessage(String id) throws Exception {
+    public List<MessageVO> getAllMessages(String id) throws Exception {
         String query = """
                 select *
                 from tbl_message
-                where sender_id = ? or receiver_id = ? 
+                where sender_id = ? or receiver_id = ? or receiver_id = '전체'
                 order by message_no desc
                 limit 10
                 """;
@@ -70,11 +70,11 @@ public enum MessageDAO {
 
         return messages;
     }
-    public List<MessageVO> getReciveMessage(String id) throws Exception {
+    public List<MessageVO> getReceiveMessage(String id) throws Exception {
         String query = """
                 select *
                 from tbl_message
-                where receiver_id = ? 
+                where receiver_id = ? or receiver_id = '전체'
                 order by message_no desc
                 limit 10
                 """;

@@ -11,16 +11,6 @@
         </li>
     </c:forEach>
 </ul>
-<form action="/message/send" method="get">
-    <button type="submit">새 쪽지 보내기</button>
-</form>
-<form action="/message/list" method="get">
-    <button type="submit">전체 쪽지함</button>
-</form>
-<form action="/message/sendlist" method="get">
-    <button type="submit">보낸 쪽지함</button>
-</form>
-<form action="/message/recivelist" method="get">
-    <button type="submit">받은 쪽지함</button>
-</form>
+</div>
+</div>
 <%@include file="../include/footer.jsp"%>

@@ -30,19 +30,19 @@ public enum RoomDAO {
         return rooms;
     }
 
-    public void addRoom(RoomVO room) throws Exception {
+    public void addRoom(RoomVO vo) throws Exception {
         String query = """
-                        INSERT INTO tbl_room (room_name) VALUES (?)
+                        insert into tbl_room (room_name) values (?)
                         """;
         @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
         @Cleanup PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, room.getRoom_name());
+        ps.setString(1, vo.getRoom_name());
         ps.executeUpdate();
     }
 
     public void deleteRoom(int room_no) throws Exception {
         String query = """
-                    DELETE FROM tbl_room WHERE room_no = ?
+                    delete from tbl_room where room_no = ?
                     """;
         @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
         @Cleanup PreparedStatement ps = con.prepareStatement(query);

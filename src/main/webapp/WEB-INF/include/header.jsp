@@ -16,3 +16,42 @@
     </style>
 </head>
 <body>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-3"><h1>쪽지시스템</h1></div>
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-3">
+            <form action="/logout" method="get">
+                <button type="submit">로그아웃</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <form action="/message/send" method="get">
+                <button type="submit">새 쪽지 보내기</button>
+            </form>
+            <form action="/message/list" method="get">
+                <button type="submit">전체 쪽지함</button>
+            </form>
+            <form action="/message/sendlist" method="get">
+                <button type="submit">보낸 쪽지함</button>
+            </form>
+            <form action="/message/recivelist" method="get">
+                <button type="submit">받은 쪽지함</button>
+            </form>
+            <c:if test="${user.role eq 'ADMIN'}">
+                <form action="/room/add" method="get">
+                    <button type="submit">방추가</button>
+                </form>
+                <form action="/room/assign" method="get">
+                    <button type="submit">방인원수정</button>
+                </form>
+                <form action="/room/list" method="get">
+                    <button type="submit">방목록</button>
+                </form>
+            </c:if>
+        </div>
+        <div class="col-md-9">
