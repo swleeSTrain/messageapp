@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.messagewebapp.common.CookieUtil;
 import org.example.messagewebapp.dao.MessageDAO;
+import org.example.messagewebapp.dao.RoomDAO;
 import org.example.messagewebapp.dao.UserDAO;
 import org.example.messagewebapp.vo.MessageVO;
 import org.example.messagewebapp.vo.UserVO;
@@ -38,6 +39,8 @@ public class MessageListController extends HttpServlet {
             } else {
                 students = UserDAO.INSTANCE.getStudentsByRoom(String.valueOf(user.getRoom_no()));
             }
+            String room_name = RoomDAO.INSTANCE.getRoomNameByNo(user.getRoom_no());
+            req.setAttribute("room_name", room_name);
             req.setAttribute("students", students);
             req.setAttribute("user", user);
             List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessages(user_id);

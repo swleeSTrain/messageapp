@@ -25,7 +25,7 @@
                     </form>
                     <form action="/room/assign" method="get" style="display:inline;">
                         <input type="hidden" name="room_no" value="${room.room_no}">
-                        <button type="submit" class="btn btn-secondary">학생 배정</button>
+                        <button type="submit" class="btn btn-secondary">학생 배정 및 수정</button>
                     </form>
                 </td>
             </tr>

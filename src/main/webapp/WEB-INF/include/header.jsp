@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-3"><h1>쪽지시스템</h1></div>
         <div class="col-md-6">
-
+            <h2>현재 방: ${room_name}</h2>
         </div>
         <div class="col-md-3">
             <form action="/logout" method="get">

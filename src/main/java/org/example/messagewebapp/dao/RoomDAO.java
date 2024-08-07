@@ -49,4 +49,17 @@ public enum RoomDAO {
         ps.setInt(1, room_no);
         ps.executeUpdate();
     }
+    // 방 이름가져오기
+    public String getRoomNameByNo(int room_no) throws Exception {
+        String query = "SELECT room_name FROM tbl_room WHERE room_no = ?";
+        @Cleanup Connection con = ConnectionUtil.INSTANCE.getDs().getConnection();
+        @Cleanup PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, room_no);
+        @Cleanup ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            return rs.getString("room_name");
+        }
+        return null;
+    }
 }

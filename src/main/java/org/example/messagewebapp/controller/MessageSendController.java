@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 import org.example.messagewebapp.common.CookieUtil;
 import org.example.messagewebapp.dao.MessageDAO;
+import org.example.messagewebapp.dao.RoomDAO;
 import org.example.messagewebapp.dao.UserDAO;
 import org.example.messagewebapp.vo.MessageVO;
 import org.example.messagewebapp.vo.UserVO;
@@ -63,6 +64,8 @@ public class MessageSendController extends HttpServlet {
             } else {
                 students = UserDAO.INSTANCE.getStudentsByRoom(String.valueOf(user.getRoom_no()));
             }
+            String room_name = RoomDAO.INSTANCE.getRoomNameByNo(user.getRoom_no());
+            req.setAttribute("room_name", room_name);
             req.setAttribute("students", students);
             req.setAttribute("user", user);
             req.getRequestDispatcher("/WEB-INF/message/send.jsp").forward(req, resp);

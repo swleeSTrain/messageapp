@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 import org.example.messagewebapp.common.CookieUtil;
 import org.example.messagewebapp.dao.MessageDAO;
+import org.example.messagewebapp.dao.RoomDAO;
 import org.example.messagewebapp.dao.UserDAO;
 import org.example.messagewebapp.vo.MessageVO;
 import org.example.messagewebapp.vo.UserVO;
@@ -34,6 +35,8 @@ public class MessageReceiveListController extends HttpServlet {
             }
             UserVO user = userOpt.get();
             req.setAttribute("user", user);
+            String room_name = RoomDAO.INSTANCE.getRoomNameByNo(user.getRoom_no());
+            req.setAttribute("room_name", room_name);
             List<MessageVO> receive_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
             req.setAttribute("receive_messages", receive_messages);
             req.getRequestDispatcher("/WEB-INF/message/receivelist.jsp").forward(req, resp);
