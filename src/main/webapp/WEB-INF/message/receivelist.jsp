@@ -16,11 +16,12 @@
     </style>
 </head>
 <body>
-<h1>보낸쪽지함</h1>
+
+<h1>받은쪽지함</h1>
 <ul>
-    <c:forEach var="send_message" items="${send_messages}">
+    <c:forEach var="receive_message" items="${receive_messages}">
         <li>
-                ${send_message}
+                ${receive_message}
         </li>
     </c:forEach>
 </ul>

@@ -32,6 +32,13 @@ public class MessageListController extends HttpServlet {
                 resp.sendRedirect("/login");
             }
             UserVO user = userOpt.get();
+            List<UserVO> students;
+            if ("ADMIN".equals(user.getRole())) {
+                students = UserDAO.INSTANCE.getAllUsers();
+            } else {
+                students = UserDAO.INSTANCE.getStudentsByRoom(String.valueOf(user.getRoom_no()));
+            }
+            req.setAttribute("students", students);
             req.setAttribute("user", user);
             List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessages(user_id);
             req.setAttribute("all_messages", all_messages);

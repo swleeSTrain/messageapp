@@ -17,9 +17,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/message/recivelist")
+@WebServlet("/message/receivelist")
 @Log4j2
-public class MessageReciveListController extends HttpServlet {
+public class MessageReceiveListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie userCookie = CookieUtil.getCookie(req, "user_id");
@@ -34,8 +34,8 @@ public class MessageReciveListController extends HttpServlet {
             }
             UserVO user = userOpt.get();
             req.setAttribute("user", user);
-            List<MessageVO> recive_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
-            req.setAttribute("recive_messages", recive_messages);
+            List<MessageVO> receive_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
+            req.setAttribute("receive_messages", receive_messages);
             req.getRequestDispatcher("/WEB-INF/message/recivelist.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);

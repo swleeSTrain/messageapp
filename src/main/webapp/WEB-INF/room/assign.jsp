@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ include file="../include/header.jsp" %>
-
+<div class="col-md-9">
 <div class="container">
     <h1 class="mt-4">학생 방 배정</h1>
     <form action="/room/assign" method="post">
@@ -18,5 +18,5 @@
         <button type="submit" class="btn btn-primary">배정</button>
     </form>
 </div>
-
+</div>
 <%@ include file="../include/footer.jsp" %>
