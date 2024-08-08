@@ -111,5 +111,4 @@ public enum MessageDAO {
         ps.setString(3, vo.getMessage_content());
         ps.executeUpdate();
     }
-
 }
