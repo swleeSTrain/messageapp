@@ -6,6 +6,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.log4j.Log4j2;
 import org.example.messagewebapp.common.CookieUtil;
 import org.example.messagewebapp.dao.UserDAO;
 import org.example.messagewebapp.vo.UserVO;
@@ -13,7 +14,7 @@ import org.example.messagewebapp.vo.UserVO;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-
+@Log4j2
 @WebServlet("/room/assign")
 public class RoomAssignController extends HttpServlet {
     @Override
@@ -36,6 +37,7 @@ public class RoomAssignController extends HttpServlet {
             try {
                 List<UserVO> students = UserDAO.INSTANCE.getAllUsers();
                 req.setAttribute("students", students);
+                log.info("room_no :" + req.getParameter("room_no"));
                 req.setAttribute("room_no", req.getParameter("room_no"));
                 req.getRequestDispatcher("/WEB-INF/room/assign.jsp").forward(req, resp);
             } catch (Exception e) {
@@ -48,8 +50,8 @@ public class RoomAssignController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            int roomNo = Integer.parseInt(req.getParameter("room_no"));
             String studentId = req.getParameter("student_id");
+            int roomNo = Integer.parseInt(req.getParameter("room_no"));
             UserDAO.INSTANCE.assignRoom(studentId, roomNo);
             resp.sendRedirect("list");
         } catch (Exception e) {

@@ -15,9 +15,9 @@ import org.example.messagewebapp.vo.MessageVO;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value="/message/send_get")
+@WebServlet(value="/message/receive_get")
 @Log4j2
-public class SendListViewController extends HttpServlet {
+public class MessageReceiveListViewController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie userCookie = CookieUtil.getCookie(req, "user_id");
@@ -25,11 +25,10 @@ public class SendListViewController extends HttpServlet {
             resp.sendRedirect("/login");
         }
         String user_id = userCookie.getValue();
-
         try {
-            List<MessageVO> all_messages = MessageDAO.INSTANCE.getSendMessage(user_id);
-            req.setAttribute("send_messages", all_messages);
-            req.getRequestDispatcher("/WEB-INF/view/sendlist.jsp").forward(req, resp);
+            List<MessageVO> all_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
+            req.setAttribute("recive_messages", all_messages);
+            req.getRequestDispatcher("/WEB-INF/message/receivelist.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

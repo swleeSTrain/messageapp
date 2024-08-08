@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="../include/menuui.jsp"%>
 
-<%@ include file="../include/header.jsp" %>
-
+<div class="col-md-9">
 <div class="container">
   <h1 class="mt-4">방 추가</h1>
   <form action="add" method="post">
@@ -12,5 +12,6 @@
     <button type="submit" class="btn btn-primary">추가</button>
   </form>
 </div>
-
+</div>
+</div>
 <%@ include file="../include/footer.jsp" %>

@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="../include/menuui.jsp"%>
 
-<%@ include file="../include/header.jsp" %>
-
+<div class="col-md-9">
 <div class="container">
     <h1 class="mt-4">방 목록</h1>
     <table class="table table-bordered">
@@ -14,7 +13,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="room" items="${rooms}">
+        <c:forEach var="room" items= "${rooms}" >
             <tr>
                 <td>${room.room_no}</td>
                 <td>${room.room_name}</td>
@@ -35,6 +34,8 @@
     <form action="/room/add" method="get">
         <button type="submit" class="btn btn-primary">방 추가</button>
     </form>
+</div>
+</div>
 </div>
 
 <%@ include file="../include/footer.jsp" %>

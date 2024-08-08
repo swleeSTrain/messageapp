@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@include file="../include/header.jsp"%>
 
 <style>
@@ -20,15 +18,6 @@
     }
 </style>
 
-
-<%--<c:set var="cookies" value="${pageContext.request.cookies}">--%>
-<%--</c:set>--%>
-<%--<c:if test="${not empty cookies}">--%>
-<%--    <c:forEach var="cookie" items="${cookies}">--%>
-<%--        <c:set var="${cookie.name}" value="${cookie.value}"></c:set>--%>
-<%--        <li>${cookie.name}: ${cookie.value}</li>--%>
-<%--    </c:forEach>--%>
-<%--</c:if>--%>
 <div class="container text-center">
     <div class="row">
         <div class="col-md-3" style="margin-top: 30px"><h1>쪽지시스템</h1></div>
@@ -41,9 +30,6 @@
     </div>
     <div class="row">
         <div class="col-md-3" >
-            <form action="/message/send" method="get" style="margin-top: 25px" >
-                <button type="submit" class="btn btn-outline-secondary">새 쪽지 보내기</button>
-            </form>
             <form action="/message/list" method="get" >
                 <button type="submit" class="btn btn-outline-secondary">전체 쪽지함</button>
             </form>
@@ -54,11 +40,8 @@
                 <button type="submit" class="btn btn-outline-secondary" >받은 쪽지함</button>
             </form>
             <c:if test="${user.role eq 'ADMIN'}">
-                <form action="/message/" method="get">
-                    <button type="submit" class="btn btn-outline-secondary" >전체 쪽지 보내기</button>
-                </form>
                 <form action="/room/add" method="get">
-                        <button type="submit" class="btn btn-outline-secondary" >방추가</button>
+                    <button type="submit" class="btn btn-outline-secondary" >방추가</button>
                 </form>
                 <form action="/room/assign" method="get">
                     <button type="submit" class="btn btn-outline-secondary" >방인원수정</button>
@@ -67,8 +50,8 @@
                     <button type="submit" class="btn btn-outline-secondary">방목록</button>
                 </form>
             </c:if>
-
         </div>
+
         <div class="col-md-9">
             <c:if test="${recive_messages != null}" >
                 <iframe src="/message/receive_get"  loading="eager" class="iframe-standard">
@@ -89,14 +72,27 @@
             </div>
                 <div class="col-md-9">
                     <form action="/message/send" method="post" style="margin-top: 40px">
-                        <div class="input-group mb-3" style="width: 500px">
-                            <label for="sender_id" class="label-standard" >받는 사람: </label>
-                            <input type="text" class="form-control" name="sender_id" id="sender_id" aria-label="Message Content" aria-describedby="button-addon2" placeholder="Receiver ID" name="message_content" id="message_content" >
-                        </div>
-                            <div class="input-group mb-3"style="width: 800px">
+<%--                        <div class="input-group mb-3" style="width: 500px">--%>
+<%--                            <label for="sender_id" class="label-standard" >받는 사람: </label>--%>
+<%--                            <input type="text" class="form-control" name="sender_id" id="sender_id" aria-label="Message Content" aria-describedby="button-addon2" placeholder="Receiver ID" name="message_content" id="message_content" >--%>
+<%--                        </div>--%>
+
+
+                        <div class="input-group mb-3" style="width: 800px" >
+                            <label class="label-standard" >받는 ID:</label>
+                            <select id="receiver_id" name="receiver_id" required style="margin-right: 20px">
+                                <!-- 관리자일 경우 '전체' 옵션 추가 -->
+                                <c:if test="${user.role eq 'ADMIN'}">
+                                    <option value="전체">전체</option>
+                                </c:if>
+                                <!-- 학생 목록: 자신의 반 학생들만 표시 -->
+                                <c:forEach var="student" items="${students}">
+                                    <option value="${student.user_id}">${student.user_name}</option>
+                                </c:forEach>
+                            </select>
                                 <label for= "message_content" class="label-standard">메시지 내용: </label>
                                 <input type="text" class="form-control"  aria-label="Message Content" aria-describedby="button-addon2" placeholder="Message Content" name="message_content" id="message_content" >
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">보내기</button>
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2" style="margin-right: 25px">보내기</button>
                         </div>
 
                     </form>

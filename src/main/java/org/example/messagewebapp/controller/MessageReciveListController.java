@@ -33,7 +33,21 @@ public class MessageReciveListController extends HttpServlet {
                 resp.sendRedirect("/login");
             }
             UserVO user = userOpt.get();
+            //내가 추가한 똑같은 students 값들
+            List<UserVO> allUsers = UserDAO.INSTANCE.getAllUsers();
+            List<UserVO> students;
+            if ("ADMIN".equals(user.getRole())) {
+                students = UserDAO.INSTANCE.getAllUsers();
+            } else {
+                students = allUsers.stream().filter(student -> {
+                    return student.getRoom_no().equals(user.getRoom_no());
+                }).toList();
+                students.stream().forEach(student -> {
+                    log.info("student" + student.getUser_no() + ": " + student.getRoom_no());
+                });
+            }
             req.setAttribute("user", user);
+            req.setAttribute("students", students);
             List<MessageVO> recive_messages = MessageDAO.INSTANCE.getReceiveMessage(user_id);
             req.setAttribute("recive_messages", recive_messages);
             req.getRequestDispatcher("/WEB-INF/message/list.jsp").forward(req, resp);

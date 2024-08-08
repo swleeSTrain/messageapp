@@ -26,7 +26,7 @@ public class MessageViewController extends HttpServlet {
         try {
             List<MessageVO> all_messages = MessageDAO.INSTANCE.getAllMessages(user_id);
             req.setAttribute("all_messages", all_messages);
-            req.getRequestDispatcher("/WEB-INF/view/get.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/message/get.jsp").forward(req, resp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
